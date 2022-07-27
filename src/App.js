@@ -29,7 +29,7 @@ function App() {
   //console.log('home inputValue', inputValue)
 
   const [countryName, setCountryName] = useState("");
-  console.log("home countryName", countryName);
+  //console.log("home countryName", countryName);
   
   const [openOptions,setOpenOptions] = useState(false)
   //const [openOptionsAgain,setOpenOptionsAgain] = useState(false)
@@ -48,7 +48,10 @@ function App() {
     e.target.placeholder = "Search";
     //setInputValue('Search')
     setOpenOptions(!openOptions)
-    
+    // if(countryName !== '' && !filterCountry[1]) {
+    //   console.log(" no more options filterCountry", filterCountry)
+    // }
+    //showMoreOption()
   };
     const handleSearchCountryName = (e) => {
     //setInputValue(e.target.value)
@@ -60,19 +63,63 @@ function App() {
       .toLocaleLowerCase()
       .includes(countryName.toLocaleLowerCase());
   });
+  console.log('1.filter', filterCountry);
 
-  const showOptions = () => {
-    if(countryName !== '') 
-    console.log('heello again');
-  }  
+  
+const currentCountryIndex = colourOptions.find((co) => co.name.official === filterCountry[0].name.official )
+console.log('curret', currentCountryIndex);
+console.log('curret', currentCountryIndex);
 
-  // const handleChangeInput = (e) => {
-  //   // setCountryName(country)
-  //   // console.log('change input countryName', countryName)
-  //   //console.log("abc", nameRef.current.innerText);
-  //   //console.log("abcde", text);
-  //    //setInputValue(country)
-  // };
+
+  // const showMoreOption = () => {
+
+  //  // define current country index
+  // const currentCountry = filterCountry[0].name.official
+  // console.log('showmore currentCountry', currentCountry);
+  
+  // // map every
+  // const eachCountry = colourOptions.map(co => co.name.official)
+  
+  // eachCountry.forEach((co, i) => console.log('co, i', co, i))
+
+  // // find the index
+  // for (let i = 0; i< colourOptions.length; i++) {
+  //   const currentIndex = 
+  //   if(currentCountry === eachCountry[i]) {
+  //     console.log('found it')
+  //   } else {
+  //     console.log('no')
+  //   }
+  // }
+  
+
+    // for (let i = 0; i < filterCountry.length; i++) {
+    //   if(currentCountry !== filterCountry[0].name.official) {
+    //     console.log('no found!')
+    //   } else {
+    //     console.log('found it')
+    //   }
+    // }
+    // const otherOptions = colourOptions.map((c) => {
+    //   return c.name.official
+    // })
+
+    // console.log('otherOptions', otherOptions);
+    // console.log('filter inside', filterCountry);
+    // if(currentCountry) {
+    //   console.log(currentCountry.length)
+    // //return filterCountry.push(otherOptions[0], otherOptions[1], currentCountry, otherOptions[3], otherOptions[4])
+    // }
+    // return filterCountry
+    //console.log('showmore otherOption', otherOptions);
+  //}
+
+
+  // const showOptions = () => {
+  //   if(countryName !== '') 
+  //   console.log('heello again');
+  // }  
+
 
   return (
     <div className="App">
@@ -88,7 +135,6 @@ function App() {
        value={countryName || ''}
       />
       {openOptions && (
-      
       <div className="optionContainer">
       <ul className="ulOption">
       {filterCountry.map((b) => (
