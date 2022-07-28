@@ -17,13 +17,13 @@ code {
 }
 
 .inputContainer {
-  border:2px solid blue;
+  border: 2px solid blue;
   padding: 10px 15px;
 }
 
 .optionContainer {
   display: flex;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .ulOption {
@@ -39,5 +39,5 @@ code {
 }
 
 .liOption:hover {
-  background-color: lightPink;
+  color: lightPink;
 }
