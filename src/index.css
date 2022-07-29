@@ -17,27 +17,43 @@ code {
 }
 
 .inputContainer {
-  border: 2px solid blue;
   padding: 10px 15px;
+  border-radius: 1px;
+  width: 466px;
+}
+
+.inputContainer:focus {
+  outline: none;
+  border: 2px solid #8a2be2;
 }
 
 .optionContainer {
   display: flex;
   justify-content: center;
+  margin-top: -16px;
 }
 
 .ulOption {
-  border: 2px solid pink;
   list-style: none;
-  height: 175px;
+  height: 200px;
   overflow: scroll;
+  text-align: start;
+  padding: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .liOption {
-  border: 2px solid green;
-  padding: 5px 50px;
+  padding: 5px 10px 5px 20px;
 }
 
 .liOption:hover {
-  color: lightPink;
+  color: #8a2be2;
+}
+
+.liOption:nth-child(3) {
+  background-color: #e9e4ff;
+}
+
+.flag {
+  padding-right: 20px;
 }

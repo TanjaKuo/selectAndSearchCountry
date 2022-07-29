@@ -6,7 +6,7 @@ import List from "./components/List";
 
 function App() {
   const [countryName, setCountryName] = useState("");
-  //console.log("home countryName", countryName);
+  console.log("~~~~~~~~~~~~~~`home countryName", countryName);
   const [countryInfo, setCountryInfo] = useState([]);
   //console.log("countryInfo", countryInfo);
   const [openOptions, setOpenOptions] = useState(false);
@@ -32,7 +32,14 @@ function App() {
   };
 
   const currentCountryIndexToNumber = parseInt(getIndex2(countryName));
-  //console.log("currentCountryIndexToNumber", currentCountryIndexToNumber);
+  console.log(
+    "currentCountryIndexToNumber number only",
+    currentCountryIndexToNumber
+  );
+  console.log(
+    "currentCountryIndexToNumber--------------",
+    countryInfo[currentCountryIndexToNumber - 1]
+  );
 
   //console.log(getIndex2(countryName));
 
@@ -64,12 +71,21 @@ function App() {
   const handleClick = (e) => {
     e.target.placeholder = "Search";
     setOpenOptions(!openOptions);
+    const nameOnly = countryInfo[currentCountryIndexToNumber - 1];
+    console.log(" inside click nameOnly--1---1--1--", nameOnly);
+    const nameOnly2 = countryInfo[currentCountryIndexToNumber - 2];
+    console.log(" inside click nameOnly--2---2-2--", nameOnly2);
+    const nameOnly3 = countryInfo[currentCountryIndexToNumber + 1];
+    const nameOnly4 = countryInfo[currentCountryIndexToNumber + 2];
 
-    const loadMoreCountryOptions = filterCountry.push({
-      id: "892",
-      name: "Tai",
-      flag: "@@",
-    });
+    const loadMoreCountryOptions2 = filterCountry.unshift(nameOnly2, nameOnly);
+    console.log(
+      "loadMoreCountryOptions2222",
+      loadMoreCountryOptions2,
+      filterCountry
+    );
+
+    const loadMoreCountryOptions = filterCountry.push(nameOnly3, nameOnly4);
     console.log(
       "loadMoreCountryOptions",
       loadMoreCountryOptions,
@@ -78,29 +94,22 @@ function App() {
 
     // check if the countryName value is one of countryInfo
 
-    const checkCountryExisting = countryInfo.map((co) =>
-      co.name.includes(countryName)
-    );
-    const checkCountryExisting2 = countryInfo.map(
+    const checkCountryExisting = countryInfo.map(
       (co) => co.name === countryName
     );
-    console.log("check--------", checkCountryExisting2);
-    if (countryName && checkCountryExisting2 && !undefined) {
+    console.log("check--------", checkCountryExisting);
+    if (countryName !== "" && checkCountryExisting && !undefined) {
       setWithCountryName(false);
-      console.log(`Yes, there a ${countryName}country name here??`);
       setLoadingMore(filterCountry);
+      console.log(
+        `Yes, there a ${countryName}country name here??`,
+        filterCountry
+      );
     } else {
       setWithCountryName(true);
       setLoadingMore(filterCountry);
       console.log("check only");
     }
-    // if (!checkCountryExisting) {
-    //   setWithCountryName(false);
-    // }
-    // else {
-    //   setWithCountryName(false);
-    //   console.log("no ocountry name here");
-    // }
   };
 
   const handleSearchCountryName = (e) => {
@@ -124,7 +133,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>1</h1>
       <input
         type="text"
         placeholder="Select"
@@ -140,22 +148,19 @@ function App() {
             {withCountryName
               ? filterCountry?.map((b) => (
                   <List
-                    key={b.name}
-                    text={b.name}
+                    b={b}
+                    key={b?.id}
+                    text={b?.name}
                     setCountryName={setCountryName}
                     setOpenOptions={setOpenOptions}
                     openOptions={openOptions}
-                    // setWithCountryName={setWithCountryName}
-                    // withCountryName={withCountryName}
-                    // style={{
-                    //   backgroundColor: hasBackgroundColor ? "red" : "green",
-                    // }}
                   />
                 ))
-              : loadingMore.map((b) => (
+              : loadingMore?.map((b) => (
                   <List
-                    key={b.name}
-                    text={b.name}
+                    b={b}
+                    key={b?.id}
+                    text={b?.name}
                     setCountryName={setCountryName}
                     setOpenOptions={setOpenOptions}
                     openOptions={openOptions}
