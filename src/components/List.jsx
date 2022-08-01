@@ -2,30 +2,55 @@ import React from "react";
 
 const List = ({
   b,
-  //   text,
   setCountryName,
   setOpenOptions,
   openOptions,
-  setWithCountryName,
-  withCountryName,
+  loadingMore,
 }) => {
-  console.log("b", b);
-  //const nameRef = useRef();
+  //console.log(" LIST b ", b);
+  //console.log(" LIST loadingMore ", loadingMore);
   const checkRef = () => {
-    //console.log(nameRef.current.innerText);
-    //console.log('list text',text)
-    //setCountry(text)
     setCountryName(b.name);
     setOpenOptions(!openOptions);
-    //setWithCountryName(!withCountryName);
   };
-  //ref={nameRef}
+
+  //const handleChange = (e) =>setCountryName(b.name));
+
   return (
-    <li onClick={checkRef} className="liOption">
-      <span className="flag">{b.flag}</span>
-      <span className="flag">{b.name}</span>
-      {/* {text} */}
-    </li>
+    <>
+      {/* {loadingMore ? (
+        loadingMore.map((b) => (
+          <li className="liOption pluBackground">
+            <span className="flag">{b.flag}</span>
+            <span className="flag">{b.name}</span>
+            {text}
+          </li>
+        ))
+      ) : ( */}
+      <li onClick={checkRef} className="liOption pluBackground">
+        <span className="flag">{b.flag}</span>
+        <span className="flag">{b.name}</span>
+      </li>
+      {/* )} */}
+      {/* {loadingMore && loadingMore.length > 1 ? (
+        loadingMore.map((b) => (
+          <li
+            onClick={checkRef2}
+            className="liOption pluBackground"
+            onChange={() => setCountryName(b.name)}
+          >
+            <span className="flag">{b.flag}</span>
+            <span className="flag">{b.name}</span>
+          </li>
+        ))
+      ) : (
+        <li onClick={checkRef} className="liOption pluBackground">
+          <span className="flag">{b.flag}</span>
+          <span className="flag">{b.name}</span>
+         
+        </li>
+      )} */}
+    </>
   );
 };
 

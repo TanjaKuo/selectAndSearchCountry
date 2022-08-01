@@ -20,11 +20,19 @@ code {
   padding: 10px 15px;
   border-radius: 1px;
   width: 466px;
+  font-size: larger;
 }
 
 .inputContainer:focus {
   outline: none;
-  border: 2px solid #8a2be2;
+  border: 3px solid #8a2be2;
+}
+
+.arrowDown {
+  position: absolute;
+  margin-left: -25px;
+  margin-top: 10px;
+  font-size: large;
 }
 
 .optionContainer {
@@ -36,7 +44,7 @@ code {
 .ulOption {
   list-style: none;
   height: 200px;
-  overflow: scroll;
+  /* overflow: scroll; */
   text-align: start;
   padding: 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

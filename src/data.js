@@ -24,3 +24,41 @@ export const colourOptions2 = [
   { id: 9, value: "red", name: " New Zealand" },
   { id: 10, value: "orange", name: "Germany" },
 ];
+
+//console.log("1.filter", filterCountry);
+
+// const showMore = () => {
+//   var obj = {};
+//   obj["id"] = ":rw:Greenland";
+//   obj["name"] = "Greenland5678";
+//   obj["flag"] = "🇬🇱";
+//   console.log("obj", obj);
+//   const neighbor = filterCountry.push(obj);
+//   console.log("2.filter", filterCountry);
+//   return neighbor;
+//   //return neighbor;
+//   //console.log("neibo", neighbor);
+// };
+
+//const currentCountryIndex = colourOptions.findIndex(countryName);
+//console.log("currentCountryIndex", currentCountryIndex);
+// console.log("filterCountry", filterCountry);
+// console.log("open countryName", countryName);
+
+// console.log("countryName", countryName, getIndex2(countryName));
+// console.log("countryName next", parseInt(getIndex2(countryName)));
+
+//console.log("filterCountry", filterCountry.puch("Japan"));
+
+// console.log(
+//   "push",
+//   filterCountry.push(getIndex2(countryName).length - 1)
+// );
+
+// const getRightIndex = () => {
+//   if (countryName && getIndex) {
+//     console.log("this is the right one and contine what are you doing");
+//   } else {
+//     console.log("this is wrong, nothing here");
+//   }
+// };
