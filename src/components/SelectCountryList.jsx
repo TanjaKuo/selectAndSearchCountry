@@ -7,13 +7,16 @@ const SelectCountryList = ({
   openOptions,
 }) => {
   console.log("SELECT country", country);
-  const checkRef = () => {
+  const handleChangeNameAndOpenClick = () => {
     setCountryName(country.name);
     setOpenOptions(!openOptions);
   };
 
   return (
-    <li onClick={checkRef} className="liOption pluBackground">
+    <li
+      onClick={handleChangeNameAndOpenClick}
+      className="liOption pluBackground"
+    >
       <span className="flag">{country.flag}</span>
       <span className="flag">{country.name}</span>
     </li>
