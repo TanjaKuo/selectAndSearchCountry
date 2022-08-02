@@ -1,39 +1,22 @@
-import React, { useState } from "react";
-import List from "./List";
+import React from "react";
 
 const SelectCountryList = ({
-  b,
-  countryName,
+  country,
   setCountryName,
   setOpenOptions,
   openOptions,
-  loadingMore,
-  checkCountryExisting,
 }) => {
-  const [isCountryExisting, setIsCountryExisting] = useState(true);
-  //console.log(" SELECT loadingMore", loadingMore);
-  //console.log("SELECT b", b);
-
+  console.log("SELECT country", country);
   const checkRef = () => {
-    setCountryName(b.name);
+    setCountryName(country.name);
     setOpenOptions(!openOptions);
-    // setOpenOptions(!openOptions);
-    // if (countryName) {
-    //   loadingMore.map((b) => setCountryName(b.name));
-    // }
-    // // setCountryName(b.name);
-    // if (!checkCountryExisting) {
-    //   setIsCountryExisting(false);
-    // }
   };
 
   return (
-    <>
-      <li onClick={checkRef} className="liOption pluBackground">
-        <span className="flag">{b.flag}</span>
-        <span className="flag">{b.name}</span>
-      </li>
-    </>
+    <li onClick={checkRef} className="liOption pluBackground">
+      <span className="flag">{country.flag}</span>
+      <span className="flag">{country.name}</span>
+    </li>
   );
 };
 
