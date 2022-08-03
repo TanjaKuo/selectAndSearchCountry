@@ -7,12 +7,19 @@ export const initialState = {
   //countryName: "",
   countriesInfo: [],
   //   isOpenOptions: false,
-  //loadingMoreCountries: [],
-  isInitialSearch: false,
+  loadingMoreCountries: [],
+  isInitialSearch: true,
   isLoading: false,
   error: null,
   filteredCountry: [],
+  currentCountryIndexToNumber: -1,
 };
+
+// const getIndex = (countryName) => {
+//   return countriesInfo.findIndex((country) => country.name === countryName);
+// };
+
+// const currentCountryIndexToNumber = parseInt(getIndex(countryName));
 
 export const fetchCountries = createAsyncThunk(
   "country/getCountriesInfo",
@@ -41,14 +48,10 @@ export const countrySlice = createSlice({
     //   state.countryName = action.payload;
     // },
     getFilteredCountry: (state, action) => {
-      //   state.filteredCountry = state.countriesInfo.filter((country) =>
-      //     country.name.toLowerCase().includes(action.payload.toLowerCase())
-      //   );
-      //   const filterCountry = state.countriesInfo.filter((country) =>
-      //     country.name.toLowerCase().includes(action.payload.toLowerCase())
-      //   );
-      //   return { ...state, filteredCountry: filterCountry };
-      //console.log("Slice filter", filteredCountry);
+      const filterCountry = state.countriesInfo.filter((country) =>
+        country.name.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      state.filteredCountry = filterCountry;
       //   return {
       //     ...state,
       //     filteredCountry,
@@ -57,15 +60,43 @@ export const countrySlice = createSlice({
       //     //     : [...state.countriesInfo],
       //   };
     },
-    // filterCountries: (state, action) => {
-    //   state.countriesInfo.map((country) => country.name === state.countryName);
-    // },
-    // openOptions: (state) => {
-    //   state.isOpenOptions = true;
-    // },
-    // closeOptions: (state) => {
-    //   state.isOpenOptions = false;
-    // },
+    getCurrentCountryIndex: (state, action) => {
+      const getIndex = (countryName) => {
+        return state.countriesInfo.findIndex(
+          (country) => country.name === countryName
+        );
+      };
+      const index = parseInt(getIndex(action.payload));
+      state.currentCountryIndexToNumber = index;
+    },
+    getMoreOptions: (state, action) => {
+      const lastCountryOfList = state.countriesInfo[249];
+      const secondAboveCurrentCountry =
+        state.countriesInfo[state.currentCountryIndexToNumber - 1];
+      const firstAboveCurrentCountry =
+        state.countriesInfo[state.currentCountryIndexToNumber - 2];
+      const firstBehindCurrentCountry =
+        state.countriesInfo[state.currentCountryIndexToNumber + 1];
+      const secondBehindCurrentCountry =
+        state.countriesInfo[state.currentCountryIndexToNumber + 2];
+      const unshift = state.filteredCountry.unshift(
+        firstAboveCurrentCountry,
+        secondAboveCurrentCountry
+      );
+      const push = state.filteredCountry.push(
+        firstBehindCurrentCountry,
+        secondBehindCurrentCountry
+      );
+      console.log("unshift", unshift);
+      console.log("push", push);
+      //state.loadingMoreCountries = unshift;
+      // state.filteredCountry.push(
+      //   oneBehindCurrentCountry,
+      //   twoBehindCurrentCountry
+      // );
+      //state.filteredCountry.unshift(action.payload);
+      state.loadingMoreCountries = state.filteredCountry;
+    },
     initialSearch: (state) => {
       state.isInitialSearch = true;
     },
@@ -97,6 +128,8 @@ export const {
   initialSearch,
   notInitialSearch,
   getFilteredCountry,
+  getMoreOptions,
+  getCurrentCountryIndex,
 } = countrySlice.actions;
 
 export default countrySlice.reducer;

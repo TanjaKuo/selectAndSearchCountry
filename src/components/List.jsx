@@ -6,7 +6,7 @@ import { getCountryName } from "../features/country/countrySlice";
 import { closeOptions } from "../features/list/listSlice";
 
 const List = ({ country, setCountryName, setOpenOptions }) => {
-  console.log("LIST country", country);
+  //console.log("LIST country", country);
   const { isLoading, error, countriesInfo, countryName } = useSelector(
     (state) => state.country
   );
