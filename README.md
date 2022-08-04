@@ -8,63 +8,55 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Purpose
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To show the ability to select and search country in the same input and get the selected country with flag. Once choose the country and the dropdown options will show min five others countries.
 
-### `npm test`
+## Tech stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create React App
+Redux Toolkit managment
+Country API
 
-### `npm run build`
+### Client side
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ReactJs
+- CSS
+- Redxu Toolkit
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Home Page
 
-### `npm run eject`
+![Home](https://github.com/TanjaKuo/clothing-site/blob/master/doc/home.png)
+![Home](https://github.com/TanjaKuo/clothing-site/blob/master/doc/home-mobile.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Category Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Category](https://github.com/TanjaKuo/clothing-site/blob/master/doc/category.png)
+![Category](https://github.com/TanjaKuo/clothing-site/blob/master/doc/category-mobile.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Shop Page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Shop](https://github.com/TanjaKuo/clothing-site/blob/master/doc/product.png)
+![Shop](https://github.com/TanjaKuo/clothing-site/blob/master/doc/product-mobile.png)
 
-## Learn More
+### Contact Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Contact](https://github.com/TanjaKuo/clothing-site/blob/master/doc/contact.png)
+![Contact](https://github.com/TanjaKuo/clothing-site/blob/master/doc/contact-mobile.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Sign In
 
-### Code Splitting
+![Sgnin](https://github.com/TanjaKuo/clothing-site/blob/master/doc/signin.png)
+![SIgnin](https://github.com/TanjaKuo/clothing-site/blob/master/doc/signin-mobile.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Checkout Page
 
-### Analyzing the Bundle Size
+![Checkout](https://github.com/TanjaKuo/clothing-site/blob/master/doc/checkout.png)
+![Checkout](https://github.com/TanjaKuo/clothing-site/blob/master/doc/checkout-mobile.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Payment Page
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Payment](https://github.com/TanjaKuo/clothing-site/blob/master/doc/payment.png)
+![Payment](https://github.com/TanjaKuo/clothing-site/blob/master/doc/payment-mobile.png)
