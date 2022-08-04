@@ -7,7 +7,6 @@ export const initialState = {
   countryName: "",
   countryNameWithoutFlag: "",
   countriesInfo: [],
-  //   isOpenOptions: false,
   loadingMoreCountries: [],
   isInitialSearch: true,
   isLoading: false,
@@ -16,16 +15,8 @@ export const initialState = {
   currentCountryIndexToNumber: -1,
 };
 
-// const getIndex = (countryName) => {
-//   return countriesInfo.findIndex((country) => country.name === countryName);
-// };
-
-// const currentCountryIndexToNumber = parseInt(getIndex(countryName));
-
 export const fetchCountries = createAsyncThunk(
   "country/getCountriesInfo",
-  // the name here is an arg, it point to the app.js getCartItem('name'), see p1
-  // the second thunkAPI, an object containing all of the parameters, see p2
   async (name, thunkAPI) => {
     try {
       const datas = await axios(COUNTRY_URL);
@@ -48,28 +39,27 @@ export const countrySlice = createSlice({
     getCountryName: (state, action) => {
       state.countryName = action.payload;
     },
-    getRidOfFlag: (state, action) => {
-      state.countryNameWithoutFlag = state.countryName.slice(4);
-    },
     getFilteredCountry: (state, action) => {
-      //const getOffLogo = state.countryName.slice(4);
-      const filterCountry = state.countriesInfo.filter((country) =>
-        country.name.toLowerCase().includes(action.payload.toLowerCase())
-      );
-      // const filterCountry2 = state.countriesInfo.filter((country) =>
-      //   country.name
-      //     .toLowerCase()
-      //     .includes(state.countryName.name.toLowerCase())
-      // );
-      state.filteredCountry = filterCountry;
-      // state.filteredCountry = state.loadinMoreCountries
-      //   ? filterCountry2
-      //   : filterCountry;
+      let arr = [];
+      const regex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]\s+/;
+
+      if (regex.test(state.countryName)) {
+        arr = state.countriesInfo.filter((country) =>
+          country.name
+            .toLowerCase()
+            .includes(state.countryName.slice(7).trimStart().toLowerCase())
+        );
+      } else {
+        arr = state.countriesInfo.filter((country) =>
+          country.name.toLowerCase().includes(action.payload.toLowerCase())
+        );
+      }
+      state.filteredCountry = arr;
     },
     getCurrentCountryIndex: (state, action) => {
-      const getIndex = (countryName) => {
+      const getIndex = () => {
         return state.countriesInfo.findIndex(
-          (country) => country.name === countryName
+          (country) => country.name === state.countryName.slice(7)
         );
       };
       const index = parseInt(getIndex(action.payload));
@@ -149,12 +139,8 @@ export const countrySlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const {
   getCountryName,
-  //filterCountries,
-  //   openOptions,
-  //   closeOptions,
   initialSearch,
   notInitialSearch,
   getFilteredCountry,

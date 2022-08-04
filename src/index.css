@@ -19,7 +19,7 @@ code {
 .inputContainer {
   padding: 10px 0 10px 15px;
   border-radius: 1px;
-  width: 404px;
+  width: 460px;
   font-size: larger;
 }
 
@@ -45,8 +45,7 @@ code {
 .ulOption {
   list-style: none;
   height: 200px;
-  width: 422px;
-  /* overflow: scroll; */
+  width: 478px;
   text-align: start;
   padding: 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

@@ -3,20 +3,14 @@ import { useDispatch } from "react-redux";
 import { closeOptions } from "../features/list/listSlice";
 import { getCountryName } from "../features/country/countrySlice";
 
-const SelectCountryList = ({
-  country,
-  setCountryName,
-  setOpenOptions,
-  openOptions,
-}) => {
-  //console.log("SELECT country", country);
+const SelectCountryList = ({ country }) => {
   const dispatch = useDispatch();
 
   const handleChangeNameAndOpenClick = () => {
-    //setCountryName(country.name);
-    dispatch(getCountryName(country.name));
+    const CountryNameWithFlag = country.flag + "   " + country.name;
+
+    dispatch(getCountryName(CountryNameWithFlag));
     dispatch(closeOptions());
-    //setOpenOptions(!openOptions);
   };
 
   return (

@@ -17,7 +17,6 @@ export const listSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { openOptions, closeOptions } = listSlice.actions;
 
 export default listSlice.reducer;
