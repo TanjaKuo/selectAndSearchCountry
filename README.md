@@ -22,7 +22,7 @@ Country API
 
 - ReactJs
 - CSS
-- Redxu Toolkit
+- Redux Toolkit
 
 ## Screenshots
 
