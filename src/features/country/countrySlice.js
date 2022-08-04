@@ -39,21 +39,21 @@ export const countrySlice = createSlice({
       state.countryName = action.payload;
     },
     getFilteredCountry: (state, action) => {
-      let arr = [];
+      let newFilteredCountryName = [];
       const regex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]\s+/;
 
       if (regex.test(state.countryName)) {
-        arr = state.countriesInfo.filter((country) =>
+        newFilteredCountryName = state.countriesInfo.filter((country) =>
           country.name
             .toLowerCase()
             .includes(state.countryName.slice(7).trimStart().toLowerCase())
         );
       } else {
-        arr = state.countriesInfo.filter((country) =>
+        newFilteredCountryName = state.countriesInfo.filter((country) =>
           country.name.toLowerCase().includes(action.payload.toLowerCase())
         );
       }
-      state.filteredCountry = arr;
+      state.filteredCountry = newFilteredCountryName;
     },
     getCurrentCountryIndex: (state, action) => {
       const getIndex = () => {
