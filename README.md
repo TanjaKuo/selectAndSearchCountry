@@ -26,37 +26,26 @@ Country API
 
 ## Screenshots
 
-### Home Page
+### Step 1. Ready to select or search a country
 
-![Home](https://github.com/TanjaKuo/clothing-site/blob/master/doc/home.png)
-![Home](https://github.com/TanjaKuo/clothing-site/blob/master/doc/home-mobile.png)
+![Home](https://github.com/TanjaKuo/selectAndSearchCountry/blob/master/doc/step-1.png)
 
-### Category Page
+### Step 2. Select or search a country
 
-![Category](https://github.com/TanjaKuo/clothing-site/blob/master/doc/category.png)
-![Category](https://github.com/TanjaKuo/clothing-site/blob/master/doc/category-mobile.png)
+![Category](https://github.com/TanjaKuo/selectAndSearchCountry/blob/master/doc/step-2.png)
 
-### Shop Page
+### Step 3. Search a country
 
-![Shop](https://github.com/TanjaKuo/clothing-site/blob/master/doc/product.png)
-![Shop](https://github.com/TanjaKuo/clothing-site/blob/master/doc/product-mobile.png)
+![Shop](https://github.com/TanjaKuo/selectAndSearchCountry/blob/master/doc/step-3.png)
 
-### Contact Page
+### Step 4. Select a country
 
-![Contact](https://github.com/TanjaKuo/clothing-site/blob/master/doc/contact.png)
-![Contact](https://github.com/TanjaKuo/clothing-site/blob/master/doc/contact-mobile.png)
+![Contact](https://github.com/TanjaKuo/selectAndSearchCountry/blob/master/doc/step-4.png)
 
-### Sign In
+### Step 5. The chosen country will show on the input
 
-![Sgnin](https://github.com/TanjaKuo/clothing-site/blob/master/doc/signin.png)
-![SIgnin](https://github.com/TanjaKuo/clothing-site/blob/master/doc/signin-mobile.png)
+![Sgnin](https://github.com/TanjaKuo/selectAndSearchCountry/blob/master/doc/step-5.png)
 
-### Checkout Page
+### Step 6. Start select another country again
 
-![Checkout](https://github.com/TanjaKuo/clothing-site/blob/master/doc/checkout.png)
-![Checkout](https://github.com/TanjaKuo/clothing-site/blob/master/doc/checkout-mobile.png)
-
-### Payment Page
-
-![Payment](https://github.com/TanjaKuo/clothing-site/blob/master/doc/payment.png)
-![Payment](https://github.com/TanjaKuo/clothing-site/blob/master/doc/payment-mobile.png)
+![Checkout](https://github.com/TanjaKuo/selectAndSearchCountry/blob/master/doc/step-6.png)
