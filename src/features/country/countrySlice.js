@@ -4,7 +4,8 @@ import axios from "axios";
 const COUNTRY_URL = "https://restcountries.com/v3.1/all";
 
 export const initialState = {
-  //countryName: "",
+  countryName: "",
+  countryNameWithoutFlag: "",
   countriesInfo: [],
   //   isOpenOptions: false,
   loadingMoreCountries: [],
@@ -30,7 +31,7 @@ export const fetchCountries = createAsyncThunk(
       const datas = await axios(COUNTRY_URL);
       const countriesInfo = datas.data.map((info) => ({
         id: info.name.common,
-        name: info.name.official,
+        name: info.name.common,
         flag: info.flag,
       }));
       return countriesInfo;
@@ -44,21 +45,26 @@ export const countrySlice = createSlice({
   name: "country",
   initialState,
   reducers: {
-    // getCountryName: (state, action) => {
-    //   state.countryName = action.payload;
-    // },
+    getCountryName: (state, action) => {
+      state.countryName = action.payload;
+    },
+    getRidOfFlag: (state, action) => {
+      state.countryNameWithoutFlag = state.countryName.slice(4);
+    },
     getFilteredCountry: (state, action) => {
+      //const getOffLogo = state.countryName.slice(4);
       const filterCountry = state.countriesInfo.filter((country) =>
         country.name.toLowerCase().includes(action.payload.toLowerCase())
       );
+      // const filterCountry2 = state.countriesInfo.filter((country) =>
+      //   country.name
+      //     .toLowerCase()
+      //     .includes(state.countryName.name.toLowerCase())
+      // );
       state.filteredCountry = filterCountry;
-      //   return {
-      //     ...state,
-      //     filteredCountry,
-      //     //   action.payload.length > 0
-      //     //     ? filteredCountry
-      //     //     : [...state.countriesInfo],
-      //   };
+      // state.filteredCountry = state.loadinMoreCountries
+      //   ? filterCountry2
+      //   : filterCountry;
     },
     getCurrentCountryIndex: (state, action) => {
       const getIndex = (countryName) => {
@@ -71,31 +77,55 @@ export const countrySlice = createSlice({
     },
     getMoreOptions: (state, action) => {
       const lastCountryOfList = state.countriesInfo[249];
-      const secondAboveCurrentCountry =
-        state.countriesInfo[state.currentCountryIndexToNumber - 1];
-      const firstAboveCurrentCountry =
-        state.countriesInfo[state.currentCountryIndexToNumber - 2];
+      const secondLastCountryOfList = state.countriesInfo[248];
+      const firstCountryOfList = state.countriesInfo[0];
+      const secondCountryOfList = state.countriesInfo[1];
       const firstBehindCurrentCountry =
         state.countriesInfo[state.currentCountryIndexToNumber + 1];
       const secondBehindCurrentCountry =
         state.countriesInfo[state.currentCountryIndexToNumber + 2];
-      const unshift = state.filteredCountry.unshift(
-        firstAboveCurrentCountry,
-        secondAboveCurrentCountry
-      );
-      const push = state.filteredCountry.push(
-        firstBehindCurrentCountry,
-        secondBehindCurrentCountry
-      );
-      console.log("unshift", unshift);
-      console.log("push", push);
-      //state.loadingMoreCountries = unshift;
-      // state.filteredCountry.push(
-      //   oneBehindCurrentCountry,
-      //   twoBehindCurrentCountry
-      // );
-      //state.filteredCountry.unshift(action.payload);
+      const twoAboveCurrentCountry =
+        state.countriesInfo[state.currentCountryIndexToNumber - 2];
+      const oneAboveCurrentCountry =
+        state.countriesInfo[state.currentCountryIndexToNumber - 1];
+
       state.loadingMoreCountries = state.filteredCountry;
+
+      const unshift = (secondBeforeCurrentCountry, firstBeforeCurrentCountry) =>
+        state.filteredCountry.unshift(
+          secondBeforeCurrentCountry,
+          firstBeforeCurrentCountry
+        );
+      const push = (firstBehibdCurrentCountry, secondBehibdCurrentCountry) =>
+        state.filteredCountry.push(
+          firstBehibdCurrentCountry,
+          secondBehibdCurrentCountry
+        );
+      if (state.currentCountryIndexToNumber === 0) {
+        unshift(secondLastCountryOfList, lastCountryOfList);
+        push(firstBehindCurrentCountry, secondBehindCurrentCountry);
+
+        state.loadingMoreCountries = state.filteredCountry;
+      } else if (state.currentCountryIndexToNumber === 1) {
+        unshift(lastCountryOfList, oneAboveCurrentCountry);
+        push(firstBehindCurrentCountry, secondBehindCurrentCountry);
+
+        state.loadingMoreCountries = state.filteredCountry;
+      } else if (state.currentCountryIndexToNumber === 249) {
+        unshift(twoAboveCurrentCountry, oneAboveCurrentCountry);
+        push(firstCountryOfList, secondCountryOfList);
+
+        state.loadingMoreCountries = state.filteredCountry;
+      } else if (state.currentCountryIndexToNumber === 248) {
+        unshift(twoAboveCurrentCountry, oneAboveCurrentCountry);
+        push(firstBehindCurrentCountry, firstCountryOfList);
+
+        state.loadingMoreCountries = state.filteredCountry;
+      } else {
+        unshift(twoAboveCurrentCountry, oneAboveCurrentCountry);
+        push(firstBehindCurrentCountry, secondBehindCurrentCountry);
+        state.loadingMoreCountries = state.filteredCountry;
+      }
     },
     initialSearch: (state) => {
       state.isInitialSearch = true;
@@ -130,6 +160,7 @@ export const {
   getFilteredCountry,
   getMoreOptions,
   getCurrentCountryIndex,
+  getRidOfFlag,
 } = countrySlice.actions;
 
 export default countrySlice.reducer;

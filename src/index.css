@@ -17,9 +17,9 @@ code {
 }
 
 .inputContainer {
-  padding: 10px 15px;
+  padding: 10px 0 10px 15px;
   border-radius: 1px;
-  width: 466px;
+  width: 404px;
   font-size: larger;
 }
 
@@ -33,6 +33,7 @@ code {
   margin-left: -25px;
   margin-top: 10px;
   font-size: large;
+  color: #d3d3d3;
 }
 
 .optionContainer {
@@ -44,6 +45,7 @@ code {
 .ulOption {
   list-style: none;
   height: 200px;
+  width: 422px;
   /* overflow: scroll; */
   text-align: start;
   padding: 0;
@@ -51,7 +53,7 @@ code {
 }
 
 .liOption {
-  padding: 5px 10px 5px 20px;
+  padding: 5px 0 5px 20px;
 }
 
 .liOption:hover {

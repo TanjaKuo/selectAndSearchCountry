@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { closeOptions } from "../features/list/listSlice";
+import { getCountryName } from "../features/country/countrySlice";
 
 const SelectCountryList = ({
   country,
@@ -8,12 +9,12 @@ const SelectCountryList = ({
   setOpenOptions,
   openOptions,
 }) => {
-  console.log("SELECT country", country);
+  //console.log("SELECT country", country);
   const dispatch = useDispatch();
 
   const handleChangeNameAndOpenClick = () => {
-    setCountryName(country.name);
-
+    //setCountryName(country.name);
+    dispatch(getCountryName(country.name));
     dispatch(closeOptions());
     //setOpenOptions(!openOptions);
   };
