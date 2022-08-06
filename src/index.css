@@ -1,13 +1,68 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.selectCountry:hover {
+  background-color: green;
+}
+
+.inputContainer {
+  padding: 10px 0 10px 15px;
+  border-radius: 1px;
+  width: 460px;
+  font-size: larger;
+}
+
+.inputContainer:focus {
+  outline: none;
+  border: 3px solid #8a2be2;
+}
+
+.arrowDown {
+  position: absolute;
+  margin-left: -25px;
+  margin-top: 10px;
+  font-size: large;
+  color: #d3d3d3;
+}
+
+.optionContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: -16px;
+}
+
+.ulOption {
+  list-style: none;
+  height: 200px;
+  width: 478px;
+  text-align: start;
+  padding: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.liOption {
+  padding: 5px 0 5px 20px;
+}
+
+.liOption:hover {
+  color: #8a2be2;
+}
+
+.pluBackground:nth-child(3) {
+  background-color: #e9e4ff;
+}
+
+.flag {
+  padding-right: 20px;
 }
